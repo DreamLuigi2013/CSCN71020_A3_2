@@ -27,7 +27,7 @@ void get_result(char* player1, char* player2, char* result) {
 				result -= i;
 			}
 		}
-		// An if statement that handles player1 = Rock, and player2 = Scissors.
+		// An else if statement that handles player1 = Rock, and player2 = Scissors.
 		else if (*player1 == 'R' && *player2 == 'S') {
 			for (int i = 0; i < sizeof(output1); i++) {
 				result += i;
@@ -35,11 +35,27 @@ void get_result(char* player1, char* player2, char* result) {
 				result -= i;
 			}
 		}
-		// An if statement that handles player1 = Scissors, and player2 = Paper.
+		// An else if statement that handles player1 = Scissors, and player2 = Paper.
 		else if (*player1 == 'S' && *player2 == 'P') {
 			for (int i = 0; i < sizeof(output1); i++) {
 				result += i;
 				*result = *(output1 + i);
+				result -= i;
+			}
+		}
+		// An else if statement that handles player1 = Rock, and player2 = Paper.
+		else if (*player1 == 'R' && *player2 == 'P') {
+			for (int i = 0; i < sizeof(output2); i++) {
+				result += i;
+				*result = *(output2 + i);
+				result -= i;
+			}
+		}
+		// An else if statement that handles player1 = Scissor, and player2 = Rock.
+		else if (*player1 == 'S' && *player2 == 'R') {
+			for (int i = 0; i < sizeof(output2); i++) {
+				result += i;
+				*result = *(output2 + i);
 				result -= i;
 			}
 		}
@@ -111,10 +127,20 @@ namespace CSCN71020A32
 			char player1[] = "Rock";
 			char player2[] = "Paper";
 			char result[8];
-			char expected_result[8] = "Player1";
+			char expected_result[8] = "Player2";
 			get_result(player1, player2, result);
 			Assert::AreEqual(result, expected_result);
 		}
+		TEST_METHOD(OneScissor_TwoRock)
+		{
+			char player1[] = "Scissor";
+			char player2[] = "Rock";
+			char result[8];
+			char expected_result[8] = "Player2";
+			get_result(player1, player2, result);
+			Assert::AreEqual(result, expected_result);
+		}
+		
 		
 
 	};
