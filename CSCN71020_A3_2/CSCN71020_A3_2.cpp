@@ -2,20 +2,24 @@
 #include "CppUnitTest.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-
+// A function that checks the values of player1 and player2. It then using pointers sets result to the neccessary value.
 void get_result(char* player1, char* player2, char* result) {
-
+	// An if statment that checks if the result is a draw and updates the result value to be "Draw".
 	if (*player1 == *player2) {
 		char output[] = "Draw";
+		// A for loop that cycles the pointers location, and then updates the value using pointer arithmetic on output.
 		for (int i = 0; i < sizeof(output); i++) {
-			result += i;
+			result += i; // Sets result pointer to correct location.
 			*result = *(output + i);
-			result -= i;
+			result -= i; // Resets result pointer to original location.
 		}
 	}
+	// An else if statment that happens when the result is a non-draw.
 	else if (*player1 != *player2) {
+		// Seperate output statments for the player1 wins and player2 wins. 
 		char output1[] = "Player1";
 		char output2[] = "Player2";
+		// An if statement that handles player1 = Paper, and player2 = Rock.
 		if (*player1 == 'P' && *player2 == 'R') {
 			for (int i = 0; i < sizeof(output1); i++) {
 				result += i;
@@ -23,6 +27,7 @@ void get_result(char* player1, char* player2, char* result) {
 				result -= i;
 			}
 		}
+		// An if statement that handles player1 = Rock, and player2 = Scissors.
 		else if (*player1 == 'R' && *player2 == 'S') {
 			for (int i = 0; i < sizeof(output1); i++) {
 				result += i;
@@ -30,6 +35,7 @@ void get_result(char* player1, char* player2, char* result) {
 				result -= i;
 			}
 		}
+		// An if statement that handles player1 = Scissors, and player2 = Paper.
 		else if (*player1 == 'S' && *player2 == 'P') {
 			for (int i = 0; i < sizeof(output1); i++) {
 				result += i;
