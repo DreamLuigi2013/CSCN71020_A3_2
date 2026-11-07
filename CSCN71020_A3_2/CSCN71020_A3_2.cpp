@@ -48,6 +48,33 @@ namespace CSCN71020A32
 			get_result(player1, player2, result);
 			Assert::AreEqual(result, expected_result);
 		}
+		TEST_METHOD(OnePaper_OneRock)
+		{
+			char player1[] = "Paper";
+			char player2[] = "Rock";
+			char result[8];
+			char expected_result[8] = "Player1";
+			get_result(player1, player2, result);
+			Assert::AreEqual(result, expected_result);
+		}
+		TEST_METHOD(OneRock_OneScissor)
+		{
+			char player1[] = "Rock";
+			char player2[] = "Scissor";
+			char result[8];
+			char expected_result[8] = "Player1";
+			get_result(player1, player2, result);
+			Assert::AreEqual(result, expected_result);
+		}
+		TEST_METHOD(OneScissor_OnePaper)
+		{
+			char player1[] = "Scissor";
+			char player2[] = "Paper";
+			char result[8];
+			char expected_result[8] = "Player1";
+			get_result(player1, player2, result);
+			Assert::AreEqual(result, expected_result);
+		}
 
 	};
 }
