@@ -13,6 +13,31 @@ void get_result(char* player1, char* player2, char* result) {
 			result -= i;
 		}
 	}
+	else if (*player1 != *player2) {
+		char output1[] = "Player1";
+		char output2[] = "Player2";
+		if (*player1 == 'P' && *player2 == 'R') {
+			for (int i = 0; i < sizeof(output1); i++) {
+				result += i;
+				*result = *(output1 + i);
+				result -= i;
+			}
+		}
+		else if (*player1 == 'R' && *player2 == 'S') {
+			for (int i = 0; i < sizeof(output1); i++) {
+				result += i;
+				*result = *(output1 + i);
+				result -= i;
+			}
+		}
+		else if (*player1 == 'S' && *player2 == 'P') {
+			for (int i = 0; i < sizeof(output1); i++) {
+				result += i;
+				*result = *(output1 + i);
+				result -= i;
+			}
+		}
+	}
 }
 
 namespace CSCN71020A32
