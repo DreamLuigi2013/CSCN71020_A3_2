@@ -157,7 +157,16 @@ namespace CSCN71020A32
 			get_result(player1, player2, result);
 			Assert::AreEqual(result, expected_result);
 		}
-		
+		TEST_METHOD(InvalidEntryP1)
+		{
+			char player1[] = "P";
+			char player2[] = "Scissor";
+			char result[8];
+			char expected_result[8] = "Invalid";
+			get_result(player1, player2, result);
+			Assert::AreEqual(result, expected_result);
+		}
+	
 		
 
 	};
