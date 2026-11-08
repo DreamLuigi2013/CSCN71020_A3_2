@@ -59,6 +59,14 @@ void get_result(char* player1, char* player2, char* result) {
 				result -= i;
 			}
 		}
+		// An else if statement that handles player1 = Paper, and player2 = Scissor.
+		else if (*player1 == 'P' && *player2 == 'S') {
+			for (int i = 0; i < sizeof(output2); i++) {
+				result += i;
+				*result = *(output2 + i);
+				result -= i;
+			}
+		}
 	}
 }
 
@@ -135,6 +143,15 @@ namespace CSCN71020A32
 		{
 			char player1[] = "Scissor";
 			char player2[] = "Rock";
+			char result[8];
+			char expected_result[8] = "Player2";
+			get_result(player1, player2, result);
+			Assert::AreEqual(result, expected_result);
+		}
+		TEST_METHOD(OnePaper_TwoScissor)
+		{
+			char player1[] = "Paper";
+			char player2[] = "Scissor";
 			char result[8];
 			char expected_result[8] = "Player2";
 			get_result(player1, player2, result);
