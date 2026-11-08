@@ -177,6 +177,51 @@ namespace CSCN71020A32
 			get_result(player1, player2, result);
 			Assert::AreEqual(result, expected_result);
 		}
+		TEST_METHOD(InvalidEntryP2)
+		{
+			char player1[] = "Paper";
+			char player2[] = "S";
+			char result[8];
+			char expected_result[8] = "Invalid";
+			get_result(player1, player2, result);
+			Assert::AreEqual(result, expected_result);
+		}
+		TEST_METHOD(InvalidEntry_SpecialCharP1)
+		{
+			char player1[] = "#";
+			char player2[] = "Scissor";
+			char result[8];
+			char expected_result[8] = "Invalid";
+			get_result(player1, player2, result);
+			Assert::AreEqual(result, expected_result);
+		}
+		TEST_METHOD(InvalidEntry_SpecialCharP2)
+		{
+			char player1[] = "Paper";
+			char player2[] = "$";
+			char result[8];
+			char expected_result[8] = "Invalid";
+			get_result(player1, player2, result);
+			Assert::AreEqual(result, expected_result);
+		}
+		TEST_METHOD(InvalidEntry_NumberP1)
+		{
+			char player1[] = "1";
+			char player2[] = "Scissor";
+			char result[8];
+			char expected_result[8] = "Invalid";
+			get_result(player1, player2, result);
+			Assert::AreEqual(result, expected_result);
+		}
+		TEST_METHOD(InvalidEntry_NumberP2)
+		{
+			char player1[] = "Paper";
+			char player2[] = "2";
+			char result[8];
+			char expected_result[8] = "Invalid";
+			get_result(player1, player2, result);
+			Assert::AreEqual(result, expected_result);
+		}
 	
 		
 
